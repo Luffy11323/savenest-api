@@ -1,0 +1,16 @@
+v: 0
+micros:
+  - name: savenest-api
+    src: .
+    engine: python3.11
+    primary: true
+    run: uvicorn main:app --host 0.0.0.0 --port ${PORT}
+    env:
+      - name: ALLOWED_ORIGINS
+        default: "*"
+      - name: PER_HOST_GAP
+        default: "0.9"
+      - name: REQUEST_TIMEOUT
+        default: "28"
+      - name: MAX_LINKS_PER_STORE
+        default: "8"
